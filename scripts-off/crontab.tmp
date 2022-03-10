@@ -1,2 +1,0 @@
-"0 */4 * * *"  CLEAN_UP_VOLUMES=1 DRY_RUN=1 FORCE_CONTAINER_REMOVAL=1 FORCE_IMAGE_REMOVAL=1 GRACE_PERIOD_SECONDS=3600 sh /executed-by-cron.sh >> /var/log/cron.log 2>&1
-

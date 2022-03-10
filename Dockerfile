@@ -1,7 +1,4 @@
-#FROM clockworksoul/docker-gc-cron:latest
-
 FROM alpine:3.15
-#FROM alpine:3.13
 
 LABEL maintainer="Mavlin Dm. <mavlind@list.ru>"
 LABEL date="2022-03-10"
@@ -29,6 +26,4 @@ COPY scripts scripts
 COPY crontab .
 RUN crontab crontab
 CMD crond -f
-#ENTRYPOINT crond -f
-#CMD ["/usr/sbin/crond", "-f"]
 #CMD ["/usr/sbin/crond", "-f", "-l", "2"]

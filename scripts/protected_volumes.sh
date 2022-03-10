@@ -1,6 +1,9 @@
 #!/bin/bash
 
 protected_volumes=(
-'rpt_*' \
-'mb_*' \
+# all items
+'*' \
+'rpt' \
+'proxy' \
+'bashhistory' \
 )
