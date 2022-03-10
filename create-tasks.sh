@@ -1,10 +1,10 @@
 #!/bin/bash
 
-echo "77777777">&1
+# echo "77777777">&1
 # "77777777">stdout
 # echo "[$(date)] Docker GC has completed." >> /var/log/cron.log
-task='* * * * * echo "$redПривет из крона !!! $nc" >/proc/1/fd/1 2>/proc/1/fd/2'
-#crontab crontab
+# task='* * * * * echo "$redПривет из крона !!! $nc" >/proc/1/fd/1 2>/proc/1/fd/2'
+crontab crontab
 #echo -e $task > crontab.tmp
 # mkdir /etc/cron.d
 # echo '* * * * * echo "$redПривет из крона !!! $nc" >/proc/1/fd/1 2>/proc/1/fd/2' >> /etc/cron.d/root
@@ -17,8 +17,8 @@ task='* * * * * echo "$redПривет из крона !!! $nc" >/proc/1/fd/1 2>
 # 0	5	1	*	*	run-parts /etc/periodic/monthly
 
 # echo '* * * * * echo "$redПривет из крона !!! $nc" >/proc/1/fd/1 2>/proc/1/fd/2' >> /etc/crontab
-echo '* * * * * echo "$redПривет из крона !!! $nc" >/proc/1/fd/1 2>/proc/1/fd/2' >> /var/spool/cron/crontabs/root
-echo '' >> /var/spool/cron/crontabs/root
+# echo '* * * * * echo "$redПривет из крона !!! $nc" >/proc/1/fd/1 2>/proc/1/fd/2' >> /var/spool/cron/crontabs/root
+# echo '' >> /var/spool/cron/crontabs/root
 # echo '* * * * * echo "$redПривет из крона !!! $nc" >/proc/1/fd/1 2>/proc/1/fd/2' >> crontab.tmp
 # var/spool/cron/crontabs/root
 
