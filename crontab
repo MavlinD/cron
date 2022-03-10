@@ -1,2 +1,5 @@
-* * * * * echo -e "$redПривет из крона !!! $nc" >/proc/1/fd/1 2>/proc/1/fd/2
-* * * * * /scripts/task.sh
+# cat var/spool/cron/crontabs/root - see this file
+#* * * * * echo -e "$redПривет из крона !!! $nc" >/proc/1/fd/1 2>/proc/1/fd/2
+#@reboot /scripts/task.sh
+@reboot /scripts/remove_containers.sh
+#* * * * * /scripts/task.sh
