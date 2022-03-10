@@ -9,8 +9,18 @@ task='* * * * * echo "$redПривет из крона !!! $nc" >/proc/1/fd/1 2>
 # mkdir /etc/cron.d
 # echo '* * * * * echo "$redПривет из крона !!! $nc" >/proc/1/fd/1 2>/proc/1/fd/2' >> /etc/cron.d/root
 
+# min	hour	day	month	weekday	command
+# */15	*	*	*	*	run-parts /etc/periodic/15min
+# 0	*	*	*	*	run-parts /etc/periodic/hourly
+# 0	2	*	*	*	run-parts /etc/periodic/daily
+# 0	3	*	*	6	run-parts /etc/periodic/weekly
+# 0	5	1	*	*	run-parts /etc/periodic/monthly
+
 # echo '* * * * * echo "$redПривет из крона !!! $nc" >/proc/1/fd/1 2>/proc/1/fd/2' >> /etc/crontab
-echo '* * * * * echo "$redПривет из крона !!! $nc" >/proc/1/fd/1 2>/proc/1/fd/2' >> crontab.tmp
+echo '* * * * * echo "$redПривет из крона !!! $nc" >/proc/1/fd/1 2>/proc/1/fd/2' >> /var/spool/cron/crontabs/root
+echo '' >> /var/spool/cron/crontabs/root
+# echo '* * * * * echo "$redПривет из крона !!! $nc" >/proc/1/fd/1 2>/proc/1/fd/2' >> crontab.tmp
+# var/spool/cron/crontabs/root
 
 # echo -e "$CRON" "$GC_ARGS echo $redПривет из крона !!! $nc" '>> /var/log/cron.log 2>&1'"\n" >> crontab.tmp
 

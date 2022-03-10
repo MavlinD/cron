@@ -7,7 +7,7 @@ COPY crontab .
 
 #RUN #/bin/bash ls
 #RUN echo 'we are running some # of cool things'
-#RUN ["/bin/bash", "/create-tasks.sh"]
+RUN ["/bin/bash", "/create-tasks.sh"]
 #RUN ["/bin/bash", "-c", "echo hello>test.txt"]
 #RUN ["/bin/bash", "-c", "/generate-crontab.sh"]
 
@@ -15,7 +15,9 @@ COPY crontab .
 #ENTRYPOINT ["/bin/sh", "-c", "/executed-by-cron.sh" ]
 #CMD ["/bin/sh", "-c", "/executed-by-cron.sh" ]
 #ENTRYPOINT ["/bin/sh", "/executed-by-cron.sh" ]
-#ENTRYPOINT ["/bin/sh", "-c", "/executed-by-cron.sh" ]
+#ENTRYPOINT ["/bin/sh", "-c", "/executed-by-cron.sh>/proc/1/fd/1 2>/proc/1/fd/2" ]
+#ENTRYPOINT ["/bin/sh", "-c", "/executed-by-cron.sh>/proc/1/fd/1 2>/proc/1/fd/2" ]
+CMD ["/usr/sbin/crond", "-f", "-l", "2"]
 #ENTRYPOINT ["/bin/sh", "-c", "/generate-crontab.sh" ]
 #CMD  cron > log
 #CMD  /generate-crontab.sh > log
