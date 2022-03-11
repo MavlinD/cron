@@ -1,6 +1,7 @@
 #!/bin/bash
 
 protected_containers=(
+# '*' \
 'cron' \
 'proxy$' \
 'jsm' \

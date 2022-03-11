@@ -5,8 +5,11 @@ echo -e $blue"[$(date)] Docker clean starting."$nc
 
 images=$(docker images -q --filter "dangling=true")
 for image in $images; do
-#             echo $image
-            docker image rm $image
+    if [[ -n $DRY_RUN ]]; then
+        echo $image
+    else
+        docker image rm $image
+    fi
 done
 
 echo -e $green"[$(date)] Docker clean has completed."$nc

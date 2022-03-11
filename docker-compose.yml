@@ -4,9 +4,8 @@ services:
   cron:
     build: .
     container_name: cron
-    hostname: cron
     network_mode: "none"
-    #restart: always
+    restart: unless-stopped
     init: true
 
     volumes:

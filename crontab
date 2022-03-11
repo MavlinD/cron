@@ -1,9 +1,0 @@
-# cat var/spool/cron/crontabs/root - see this file
-
-* * * * * echo -e "$redПривет из крона !!! $nc"
-@reboot eval "docker system df"
-#@reboot /scripts/task.sh
-#@reboot /scripts/remove_containers.sh
-#@reboot /scripts/remove_volumes.sh
-#@reboot /scripts/remove_images.sh
-#* * * * * /scripts/task.sh

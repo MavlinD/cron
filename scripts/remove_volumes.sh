@@ -2,8 +2,7 @@
 
 echo -e $blue"[$(date)] Docker clean starting."$nc
 # echo $PWD
-# source ./scripts/protected_volumes.sh
-source /scripts/protected_volumes.sh
+source ./scripts/protected_volumes.sh
 volume_args=""
 
 for volume in ${protected_volumes[@]}; do
@@ -11,15 +10,18 @@ for volume in ${protected_volumes[@]}; do
 done
 
 volume_args="${volume_args:1}"
-echo $volume_args
+# echo $volume_args
 
 volumes=$(docker volume ls -q)
 
 for volume in $volumes; do
-        if [[ ! $volume =~ $volume_args ]]; then
-#             echo $volume
+    if [[ ! $volume =~ $volume_args ]]; then
+        if [[ -n $DRY_RUN ]]; then
+            echo $volume
+        else
             docker volume rm $volume
         fi
+    fi
 done
 
 echo -e $green"[$(date)] Docker clean has completed."$nc

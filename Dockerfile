@@ -4,14 +4,10 @@ LABEL maintainer="Mavlin Dm. <mavlind@list.ru>"
 LABEL date="2022-03-10"
 
 ARG DOCKER_VERSION=20.10.9
-#ARG DOCKER_VERSION=1.11.1
 #Linux:   https://download.docker.com/linux/static
 
-# We get curl so that we can avoid a separate ADD to fetch the Docker binary, and then we'll remove it.
-# Blatantly "borrowed" from Spotify's spotify/docker-gc image. Thanks, folks!
 RUN apk --update add bash curl tzdata \
   && cd /tmp/ \
-#  && curl -sSL -O https://get.docker.com/builds/Linux/x86_64/docker-${DOCKER_VERSION}.tgz \
   && curl -sSL -O https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_VERSION}.tgz \
   && tar zxf docker-${DOCKER_VERSION}.tgz \
   && mkdir -p /usr/local/bin/ \
@@ -22,8 +18,7 @@ RUN apk --update add bash curl tzdata \
   && rm -rf /var/cache/apk/*
 
 COPY .bashrc /root
-COPY scripts scripts
+COPY scripts /root/scripts
 COPY crontab .
 RUN crontab crontab
 CMD crond -f
-#CMD ["/usr/sbin/crond", "-f", "-l", "2"]

@@ -61,14 +61,4 @@ xterm* | rxvt*)
 
 esac
 
-alias m="micro"
-alias rel="source ~/.bashrc"
-alias sr="nginx -s reload"
-alias n="nginx"
-
-# load env from ~/common.env
-# if [ -f ~/common.env ]; then
-#    export $(echo $(cat ~/common.env | sed 's/#.*//g'| xargs) | envsubst)
-# fi
-
 export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhistory/.bash_history
